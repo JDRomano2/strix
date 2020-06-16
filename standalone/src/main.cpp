@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include <strix/strix.h>
+#include <strix/strix.hpp>
 
-#include <pugixml.h>
+#include <pugixml.hpp>
 
 int main() {
   strix::Strix st();
