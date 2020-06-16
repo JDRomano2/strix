@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/JDRomano2/strix/workflows/CI/badge.svg)
 
-A (modern) Library and command line tool for interacting with OWL2 ontologies
+A (modern) library and command line tool for interacting with OWL2 ontologies
 
 ## What is Strix?
 
@@ -28,6 +28,12 @@ Some alternatives that might be worth checking out, as well:
 Strix is open-source, and you are free to modify and reuse it. Check out [LICENSE](./LICENSE) for more details.
 
 Once we get an initial release out we will start to accept contributions via GitHub pull requests - stay tuned for more info as we go through the development process!
+
+## Licensing info
+
+Strix is released as open-source softwware under the MIT license. Please see [LICENSE](./LICENSE) for further details.
+
+Code from several other open-source projects are included in this repository. They are reproduced in their entirety, with their own license details left intact. These include [pugixml](http://pugixml.org/) (for XML parsing) and [CPM.cmake](https://github.com/TheLartians/CPM.cmake) (for loading some dependencies). Any derivations of Strix should not modify these files unless their license details permit doing otherwise.
 
 ## Contact us
 
