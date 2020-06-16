@@ -40,7 +40,7 @@ add_library(Strix ${headers} ${src})
 set_target_properties(Strix PROPERTIES CXX_STANDARD 17)
 
 # enforce standards conformance on MSVC
-target_compile_options(Strix PUBLIC "$<$<BOOL:${MSVC}>:/permissive->")
+#target_compile_options(Strix PUBLIC "$<$<BOOL:${MSVC}>:/permissive->")
 
 target_include_directories(Strix
   PUBLIC
