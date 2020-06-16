@@ -23,7 +23,7 @@ CPMAddPackage(
 
 CPMAddPackage(
   NAME Strix
-  SOURCE_DIR #{CMAKE_CURRENT_LIST_DIR}/..
+  SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..
 )
 
 # ---- Create standalone executable ----
