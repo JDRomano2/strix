@@ -1,0 +1,5 @@
+if (NOT PORJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+  return()
+endif()
+
+include(${CMAKE_CURRENT_LIST_DIR}/CPM.cmake)
