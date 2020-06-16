@@ -1,4 +1,7 @@
 # Strix
+
+![CI](https://github.com/JDRomano2/strix/workflows/CI/badge.svg)
+
 A (modern) Library and command line tool for interacting with OWL2 ontologies
 
 ## What is Strix?
