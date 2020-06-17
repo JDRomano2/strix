@@ -22,6 +22,7 @@ There are other tools out there that may also solve your specific needs. When we
 Some alternatives that might be worth checking out, as well:
 
 - [owlcpp](http://owl-cpp.sf.net/)
+- [semtk](https://github.com/ge-semtk/semtk)
 
 ## How do I contribute to Strix's development?
 

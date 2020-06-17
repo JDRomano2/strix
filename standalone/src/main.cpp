@@ -1,19 +1,12 @@
 #include <iostream>
 
-#include <strix/strix.hpp>
+#include <strix/rdf/parse.hpp>
 
 #include <pugixml.hpp>
 
 int main() {
-  strix::Strix st();
-  std::cout << "Why hello there" << std::endl;
+  std::cout << "Why hello there." << std::endl;
+  std::cout << "This is a quick demo, where we parse the Pizza OWL ontology." << std::endl;
 
-  // Parse the Pizza ontology
-  char* pizza_fname = "data/pizza.owl";
-  pugi::xml_document pizza_doc;
-  pugi::xml_parse_result pizza = pizza_doc.load_file(pizza_fname);
-
-  std::cout << "Load result: " << pizza.description() << ", mesh name: " << 
-  pizza_doc.child("mesh").attribute("name").value() << std::endl;
-
+  auto pizza = rdf::RDFParser("data/pizza.owl");
 }
