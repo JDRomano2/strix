@@ -9,12 +9,13 @@
 namespace rdf {
   class RDFParser {
    public:
-    RDFParser(std::string full_path);
+    RDFParser() {};
+    rdf::RDFDataset ParseRdfDocument(std::string full_path);
+    void addRDFTriple(pugi::xml_node);
    private:
     std::string local_path;
     pugi::xml_document xml_doc;
     pugi::xml_parse_result xml_parse_object;
-    rdf::RDFDataset dataset;
   };
 }
 

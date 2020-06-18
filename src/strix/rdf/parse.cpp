@@ -41,7 +41,9 @@ std::string type_name() {
 using namespace rdf;
 using namespace pugi;
 
-RDFParser::RDFParser(std::string full_path) {
+rdf::RDFDataset RDFParser::ParseRdfDocument(std::string full_path) {
+  rdf::RDFDataset parsed_dataset = RDFDataset();
+
   this->local_path = full_path;
   this->xml_parse_object = this->xml_doc.load_file(full_path.c_str());
 
@@ -64,4 +66,6 @@ RDFParser::RDFParser(std::string full_path) {
     std::cout << "  Ontology node value: " << ontology_node.value() << std::endl;
     std::cout << "  Ontology node first attribute: " << ontology_node.first_attribute().name() << std::endl;
   }
+
+  return parsed_dataset;
 };
