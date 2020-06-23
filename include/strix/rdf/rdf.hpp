@@ -1,6 +1,8 @@
 #ifndef RDF_RDF_HPP
 #define RDF_RDF_HPP
 
+#include <strix/identifiers.hpp>
+
 #include <set>
 #include <string>
 
@@ -20,19 +22,37 @@ namespace rdf {
   // Note that IRIs are unicode-compliant, and therefore encoded as std::string.
   typedef std::string iri_t;
 
+  class RDFNode {
+   public:
+    bool operator== (const RDFNode& n) { return Equal(n); }
+    bool operator!= (const RDFNode& n) { return ! Equal(n); }
+    RDFNode* clone() const { return CloneImpl(); }
+   private:
+    virtual bool Equal(const RDFNode& n) const =0;
+    virtual RDFNode* CloneImpl() const =0;
+  };
+
+  class RDFBlankNode : public RDFNode {
+   public:
+    RDFBlankNode(const strix::DocumentID doc) : parent_document(doc) {};
+
+    strix::DocumentID document() const { return parent_document; }
+   private:
+    strix::DocumentID parent_document;
+  };
+
   /**
    * RDF Literal, used to store values such as strings, numbers, and dates.
    * See: https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#section-Graph-Literal
    */
-  class Literal {
+  class RDFLiteralNode : public RDFNode {
+   public:
+    RDFLiteralNode();
+    std::string to_literal_value();
    private:
     std::string lexical_form;
     iri_t datatype_iri;
     std::string lang_tag;
-   public:
-    Literal();
-
-    std::string to_literal_value();
   };
 
   /**
@@ -50,7 +70,7 @@ namespace rdf {
     enum class Obj_type { IRI, LIT, BLANK_NODE };
     
     iri_t iri;
-    rdf::Literal literal;
+    // RDFLiteralNode literal;
   };
 
   /**

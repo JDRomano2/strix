@@ -1,8 +1,8 @@
 {
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "files.associations": {
         "filesystem": "cpp",
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "xstring": "cpp"
     }
 }

@@ -2,7 +2,7 @@
 
 using namespace rdf;
 
-std::string Literal::to_literal_value() {
+std::string RDFLiteralNode::to_literal_value() {
   // https://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/#dfn-literal
   std::string literal_str;
   if (lang_tag.empty()) {
