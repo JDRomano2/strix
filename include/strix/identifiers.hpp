@@ -38,22 +38,22 @@ namespace strix {
    * Note storage as uint8_t - you shouldn't be working with THAT many RDF
    * documents at once.
    */
-  class DocumentID : public strix::BaseID<DocumentID> {
+  class RDFDocumentID : public strix::BaseID<RDFDocumentID> {
    public:
-    explicit DocumentID(const uint8_t val) : baseId(val) {};
-    DocumentID() : baseId(0) {};
+    explicit RDFDocumentID(const uint8_t val) : baseId(val) {};
+    RDFDocumentID() : baseId(0) {};
   };
 
-  class NodeID : public strix::BaseID<NodeID> {
+  class RDFNodeID : public strix::BaseID<RDFNodeID> {
    public:
-    explicit NodeID(const uint32_t val) : baseId(val) {};
-    NodeID() : baseId(0) {};
+    explicit RDFNodeID(const uint32_t val) : baseId(val) {};
+    RDFNodeID() : baseId(0) {};
   };
 
-  class NamespaceID : public strix::BaseID<NamespaceID> {
+  class RDFNamespaceID : public strix::BaseID<RDFNamespaceID> {
    public:
-    explicit NamespaceID(const uint32_t val) : baseId(val) {};
-    NamespaceID() : baseId(0) {};
+    explicit RDFNamespaceID(const uint32_t val) : baseId(val) {};
+    RDFNamespaceID() : baseId(0) {};
   };
 
 }

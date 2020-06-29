@@ -34,11 +34,11 @@ namespace rdf {
 
   class RDFBlankNode : public RDFNode {
    public:
-    RDFBlankNode(const strix::DocumentID doc) : parent_document(doc) {};
+    RDFBlankNode(const strix::RDFDocumentID doc) : parent_document(doc) {};
 
-    strix::DocumentID document() const { return parent_document; }
+    strix::RDFDocumentID document() const { return parent_document; }
    private:
-    strix::DocumentID parent_document;
+    strix::RDFDocumentID parent_document;
   };
 
   /**

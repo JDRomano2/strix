@@ -3,12 +3,9 @@
 
 #include <strix/identifiers.hpp>
 
-class RTree {
- public:
-  RTree() {};
- private:
-  
-};
+#include <string>
+#include <vector>
+
 
 namespace rdf {
 
@@ -19,8 +16,15 @@ namespace rdf {
     strix::IDManager id_manager;
   };
 
+  class NodeKey {
+   protected:
+    strix::RDFNodeID node_id;
+   public:
+    rdf::NodeKey() {};
+  };
+
   /**
-   * Basic Triplestore class
+   * Abstract base class for a triplestore implementation.
    * 
    * Essentially, every RDF triple is stored in a (TBD) collection, but IRIs
    * and other RDF identifiers are replaced by nuemric placeholders that point
@@ -40,9 +44,34 @@ namespace rdf {
    */
   class Store {
    public:
-    Store() {};
-   private:
-    triples
+    virtual NodeKey findNodeByLabel(std::string label_str) =0;
+    virtual void addNodeByLabel(std::string label_str) =0;
+  };
+
+  template<typename T>
+  class BTreeNode {
+  public:
+    BTreeNode() {};
+  private:
+    uint8_t n; // number of keys stored in this node
+    std::vector<T> keys; // keys, in nondecreasing order
+    bool leaf; // Is this node a leaf, or is it an internal node?
+    std::vector<T*> children;
+  };
+
+  class BTree {
+  public:
+    rdf::BTree() {}; // Create an empty b-tree
+    rdf::BTree(std::vector<std::string> init_nodes) {}; // `B-TREE-CREATE` in CLRS
+    void addKey(NodeKey k);
+  private:
+    rdf::BTreeNode<strix::RDFNodeID>* root;
+    uint8_t h; // All leaves are at the same depth, which is equal to its height h
+    uint16_t t; // Minimum degree of each node (t \geq 2)
+
+    rdf::BTreeNode<strix::RDFNodeID>* bTreeSearch();
+    void bTreeInsert(std::string newNode);
+
   };
 
 }
